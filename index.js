@@ -5,9 +5,9 @@ function readAllObjectsFromFileSync(path){
 }
 
 module.exports.getAllSync = function(path) {
-	return getAllObjectsSync(path);
+	return readAllObjectsFromFileSync(path);
 }
 
 module.exports.getSync = function(path, key, value) {
-	return getAllObjectsSync(path).filter(object => object[key] == value)[0];
+	return readAllObjectsFromFileSync(path).filter(object => object[key] == value)[0];
 }
