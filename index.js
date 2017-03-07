@@ -9,5 +9,9 @@ module.exports.getAllSync = function(path) {
 }
 
 module.exports.getSync = function(path, key, value) {
-	return readAllObjectsFromFileSync(path).filter(object => object[key] == value);
+	return readAllObjectsFromFileSync(path).filter(object => key in object && object[key] == value);
+}
+
+module.exports.getSyncNoCase = function(path, key, value) {
+	return readAllObjectsFromFileSync(path).filter(object => key in object && object[key].toLowerCase() == value.toLowerCase);
 }
